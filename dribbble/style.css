@@ -92,6 +92,9 @@ header {
  	justify-content: flex-start;
  	align-items: baseline;}
 
+ 
+
+
 .picture {
   display: flex;
   flex-direction: row;
@@ -111,7 +114,7 @@ header {
 	border-radius: 1vh;
 	box-shadow: 0 4px 20px rgba(0,0,0,0.5); 
 }
-
+/*
 .page {
 	display: flex;
 	justify-content: center;
@@ -134,7 +137,7 @@ header {
    background: #ED5992;
    color: #fff;
 }	
-
+*/
 .b-popup{
     width:100%;
     min-height:100%;
@@ -160,7 +163,12 @@ header {
 }
 
 .b-popup-content img{
-    max-width: 95%;
+/*    max-width: 90%;
+    max-height: 75%
+    min-height: 55%;
+    min-width: : 75%;*/
+    width: 480px;
+    height: 350px;
     position: absolute;
     top: 0;
     left: 0;
@@ -178,4 +186,106 @@ header {
 	line-height: 24px;;
 	position: absolute;
 	top: 390px;
+}
+
+.btn_back, .btn_next{
+	width: 40px;height: 40px; background:#F0F2F5;
+}
+span{
+	transform: scale(2);
+    color: #d01414;
+    padding: 9px 0 0px 12px;
+    position: absolute;
+    cursor: default;
+}
+.pagination {
+	display: flex;
+	justify-content: center;
+	margin-top: 6vh;
+}
+.pages li {
+	border: 1px solid #F0F2F5;
+	background: #F0F2F5;
+	border-radius: 4px;
+    padding: 8px 16px;
+    margin: 0 4px;
+}
+
+.pages li:hover {
+   background: #ED5992;
+   color: #fff;
+}	
+.pages li.active {
+   background: #ED5992;
+   color: #fff;
+}	
+
+.load span {
+	width: 2px;
+	height: 2px;
+	border-radius: 50%;
+}
+.load {
+	max-width: 100%;
+	min-height: 100%;
+}
+.one {
+	top: 50%;
+	left: 45%;
+	background: #2d126d;
+}
+.two {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	background: #ee5893;
+}
+.three {
+	position: absolute;
+	top: 50%;
+	left: 55%;
+	background: #7439e3;
+}
+.load p {
+	position: absolute;
+	top: 55%;
+	left: 44%;
+	letter-spacing: 10px;
+}
+@keyframes bouncing{
+  0%  { width: 2px; height: 2px; }
+  100% {width: 6px; height: 6px;}
+}
+
+.one {
+	animation: bouncing 0.5s 0s infinite alternate forwards;
+} 
+.two {
+	animation: bouncing 0.5s 0.2s infinite alternate forwards;
+} 
+.three {
+	animation: bouncing 0.5s 0.4s infinite alternate forwards;
+	s;
+} 
+
+.oops img {
+position: absolute;
+top: 30%;
+left:45%;
+}
+.oops h2 {
+position: absolute;
+top: 55%;
+left:45%;
+color: #2d126d;
+font-weight: bolder;
+padding-left: 35px;
+}
+.oops p {
+width: 220px;
+font-size: 14px;
+text-align: center;
+position: absolute;
+top: 60%;
+left:42%;
 }
