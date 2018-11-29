@@ -145,6 +145,7 @@ header {
     overflow:hidden;
     position:fixed;
     top:0px;
+    display: none;
 }
 .b-popup .b-popup-content{
     border-radius: 4px;
@@ -193,7 +194,7 @@ header {
 }
 span{
 	transform: scale(2);
-    color: #d01414;
+    color:#ED5992;
     padding: 9px 0 0px 12px;
     position: absolute;
     cursor: default;

@@ -7,56 +7,40 @@ $(document).on("click",".btn_back ",function() {
 	}
 	let i =  $(".pages").find(".active").data("number") ; 
 	
-	if(i==2){
-		 request(2,8);
-	}
-	if(i==1){
-		 request(1,15);
-	}
+	request(i,15);
 
 });
 
 $(document).on("click",".btn_next ",function() {
-
-
 	let page =  $(".pages").find(".active").data("number") ; 
-
 	$(".page").removeClass("active"); 
-		page+1; 
-	$(".page").eq(page).addClass("active");
 
+	$(".page").eq(page).addClass("active");
 	let i =  $(".pages").find(".active").data("number") ; 
-	if(i==2){
-		 request(2,8);
-	}
-	if(i==1){
-		 request(1,15);
-	}
+	
+	request(i,15);
 });
 
 $(document).on("click"," li",function() {
 	let page =  $(".pages").data("number") ;
-		$(".page").removeClass("active");
-		$(this).addClass("active");
+	$(".page").removeClass("active");
+	$(this).addClass("active");
 	
 	let i =  $(".pages").find(".active").data("number") ; 
-	if(i==2){
-		 request(2,8);
-	}
-	if(i==1){
-		 request(1,15);
-	}
+	
+	request(i,15);
 });
 
 
-function request(page,limit,str){
+function request(page,limit,type){
 	$(".picture").empty();
-
+	// let value;
 	$.ajax({ 
-	url: "http://gallery.dev.webant.ru/api/photos?page="+page+"&limit="+limit+"", 
+		url: "http://gallery.dev.webant.ru/api/photos?page="+page+"&limit="+limit+"",
+	         // "http://gallery.dev.webant.ru/api/photos?new="+value+"true&popular=false" 
 	}).done(function( data){ 
 		data.data.forEach(function(item,i,arr){
-		$(".picture").append('<img style="width:200px;height:200px" src='+'http://gallery.dev.webant.ru/media/'+item.image.contentUrl+' alt="">')
+			$(".picture").append('<img class="pict" style="width:200px;height:200px" src='+'http://gallery.dev.webant.ru/media/'+item.image.contentUrl+' alt="">')
 		})
 	})
 } 
