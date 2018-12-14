@@ -1,4 +1,3 @@
-
 var typeNew = "new";
 var typePopular = "popular"; 
 var type = typeNew;
@@ -35,7 +34,7 @@ function pages(countPages, activePage ) {
 
 $(document).on('click', '.pages li' , function(){
 	let number = $(this).data('number');
-	request(number, 5, type );
+	request(number, 1, type );
 })
 
 
@@ -46,7 +45,7 @@ $(document).on('click', '.new', function(e) {
 	$('.popular').removeClass('activeTab');
 	$('.new').addClass('activeTab');
 	type = typeNew;
-	request(1, 5, type);
+	request(1, 1, type);
 	
 });
 
@@ -56,12 +55,12 @@ $(document).on('click', '.popular', function(e) {
 	$('.new').removeClass('activeTab');
 	$('.popular').addClass('activeTab');;
 	type = typePopular;
-	request(1, 5, type);
+	request(1, 1, type);
 	
 });
 
 function request(page, limit, type){
-$(".picture").empty();
+	$(".picture").empty();
 	load(true);
 	$.ajax({ 
 		url: "http://gallery.dev.webant.ru/api/photos?"+type+"=true&page="+page+"&limit="+limit+"",
@@ -76,8 +75,11 @@ $(".picture").empty();
 		pages(data.countOfPages, page);	
 	}).fail(function() {
 		load(false);
-		$('.main').empty();
-		$('.main').append("<img src='img/NoInternet.png' alt='offline'><h2>Oh shucks!</h2><p>Slow or no internet connection.</p><p>Please check your internet settings</p>");
+		// $('.picture').empty();
+		$('.pagination').hide();
+		$('.picture').hide();
+		$('.oops').remove();
+		$('main').append("<div class='oops'><img src='img/No_internet.png' alt='offline'><h2>Oh shucks!</h2><p>Slow or no internet connection.</p><p>Please check your internet settings</p></div>");
 	});
 }
 
